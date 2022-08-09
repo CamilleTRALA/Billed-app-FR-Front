@@ -16,7 +16,7 @@ import mockStore from "../__mocks__/store";
 
 import router from "../app/Router.js";
 
-jest.mock("../app/store", () => mockStore)
+jest.mock("../app/store", () => mockStore);
 
 describe("Given I am connected as an employee", () => {
   describe("When I am on Bills Page", () => {
@@ -96,7 +96,9 @@ describe("Given I am connected as an employee", () => {
 
         const handleClickIconEye = jest.fn(billsPage.handleClickIconEye);
         const eye = screen.getAllByTestId("icon-eye")[0];
-        eye.addEventListener("click", () => handleClickIconEye(eye));
+        eye.addEventListener("click", function () {
+          handleClickIconEye(eye);
+        });
         console.dir("eye", eye.parentElement.innerHTML);
         userEvent.click(eye);
         expect(handleClickIconEye).toHaveBeenCalled();

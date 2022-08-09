@@ -6,11 +6,6 @@ import Actions from "./Actions.js";
 
 const orderedBills = (bills) => {
   bills.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
-
-  bills.forEach((element) => {
-    console.log(element.date, Date.parse(element.date));
-  });
-
   return bills;
 };
 
